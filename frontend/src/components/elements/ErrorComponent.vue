@@ -26,7 +26,7 @@ export default {
     SongCard,
   },
   created() {
-    fetch("http://localhost:8080/api/song/randomid")
+    fetch("http://192.168.178.66:8083/api/song/randomid")
       .then((response) => response.json())
       .then((json) => {
         this.randomid = json;

@@ -60,7 +60,7 @@ export default {
         this.password != undefined &&
         this.password != ""
       ) {
-        fetch(`http://localhost:8080/api/user/${this.username}/salt`)
+        fetch(`http://192.168.178.66:8083/api/user/${this.username}/salt`)
           .then((response) => response.json())
           .then((json) => {
             let user = [];

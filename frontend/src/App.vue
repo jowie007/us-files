@@ -292,7 +292,7 @@ export default {
     },
     checkForMessages() {
       fetch(
-        `http://localhost:8080/api/user/${this.$store.state.auth.user.username}/newMessages`
+        `http://192.168.178.66:8083/api/user/${this.$store.state.auth.user.username}/newMessages`
       )
         .then((response) => response.json())
         .then((json) => {

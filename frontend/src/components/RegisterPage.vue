@@ -211,7 +211,7 @@ export default {
           headers: { "Content-Type": "application/json" },
           body: user,
         };
-        fetch("http://localhost:8080/api/auth/signup", requestOptions)
+        fetch("http://192.168.178.66:8083/api/auth/signup", requestOptions)
           .then((response) => response.json())
           .then((json) => {
             this.bottomText = json.answer;

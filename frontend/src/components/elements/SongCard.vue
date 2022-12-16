@@ -107,7 +107,7 @@ export default {
         }),
       };
       fetch(
-        `http://localhost:8080/api/song/${this.id}/${
+        `http://192.168.178.66:8083/api/song/${this.id}/${
           this.$store.state.auth.user == null
             ? ""
             : this.$store.state.auth.user.username
@@ -123,7 +123,7 @@ export default {
   },
   created() {
     fetch(
-      `http://localhost:8080/api/song/${this.id}/${
+      `http://192.168.178.66:8083/api/song/${this.id}/${
         this.$store.state.auth.user == null
           ? ""
           : this.$store.state.auth.user.username
@@ -141,7 +141,7 @@ export default {
         console.log("Song-Data-Error");
       });
     // https://stackoverflow.com/questions/46002113/javascript-reactjs-display-image-with-readablestream-as-source
-    fetch("http://localhost:8080/api/song/" + this.id + "/cover")
+    fetch("http://192.168.178.66:8083/api/song/" + this.id + "/cover")
       .then((response) => response.blob())
       .then((blob) => {
         if (blob.size == 0) {

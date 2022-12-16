@@ -437,7 +437,7 @@ export default {
       this.$router.push(`/song/edit/${this.id}`);
     },
     markAsUpdated() {
-      fetch(`http://localhost:8080/api/song/${this.id}/updated`).then(() => {
+      fetch(`http://192.168.178.66:8083/api/song/${this.id}/updated`).then(() => {
         this.getData();
         this.$toast("Successfuly updated!");
       });
@@ -463,7 +463,7 @@ export default {
       }
       if (makerequest) {
         fetch(
-          `http://localhost:8080/api/song/${this.id}/editor/add/${this.newEditorName}`
+          `http://192.168.178.66:8083/api/song/${this.id}/editor/add/${this.newEditorName}`
         )
           .then((response) => response.json())
           .then((json) => {
@@ -486,7 +486,7 @@ export default {
       this.selectedItem = "";
       // TODO Nicht alle Daten zum Creator in Response anzeigen
       fetch(
-        `http://localhost:8080/api/song/${this.id}/${
+        `http://192.168.178.66:8083/api/song/${this.id}/${
           this.$store.state.auth.user == null
             ? ""
             : this.$store.state.auth.user.username + "/"
@@ -551,7 +551,7 @@ export default {
         }),
       };
       fetch(
-        `http://localhost:8080/api/song/${this.id}/${
+        `http://192.168.178.66:8083/api/song/${this.id}/${
           this.$store.state.auth.user == null
             ? ""
             : this.$store.state.auth.user.username
@@ -648,7 +648,7 @@ export default {
     },
     getCover() {
       // https://stackoverflow.com/questions/46002113/javascript-reactjs-display-image-with-readablestream-as-source
-      fetch("http://localhost:8080/api/song/" + this.id + "/cover")
+      fetch("http://192.168.178.66:8083/api/song/" + this.id + "/cover")
         .then((response) => response.blob())
         .then((blob) => {
           if (blob.size == 0) {
@@ -696,7 +696,7 @@ export default {
     },
     getProfileImage(userName) {
       // https://stackoverflow.com/questions/46002113/javascript-reactjs-display-image-with-readablestream-as-source
-      fetch(`http://localhost:8080/api/user/${userName}/image`)
+      fetch(`http://192.168.178.66:8083/api/user/${userName}/image`)
         .then((response) => response.blob())
         .then((blob) => {
           if (blob.size > 0) {

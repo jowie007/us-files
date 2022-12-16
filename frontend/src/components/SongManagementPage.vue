@@ -227,7 +227,7 @@ export default {
     },
     fetchSong() {
       if (this.formData.id != null) {
-        fetch(`http://localhost:8080/api/song/${this.formData.id}`)
+        fetch(`http://192.168.178.66:8083/api/song/${this.formData.id}`)
           .then((response) => response.json())
           .then((json) => {
             this.formData = json;
@@ -241,7 +241,7 @@ export default {
     },
     fetchParentSong() {
       if (this.formData.parentSongId != null) {
-        fetch(`http://localhost:8080/api/song/${this.formData.parentSongId}`)
+        fetch(`http://192.168.178.66:8083/api/song/${this.formData.parentSongId}`)
           .then((response) => response.json())
           .then((json) => {
             this.parentSong = json;
@@ -274,7 +274,7 @@ export default {
         }),
       };
       if (this.parentSongId != undefined) {
-        fetch("http://localhost:8080/api/song/version/exists", requestOptions)
+        fetch("http://192.168.178.66:8083/api/song/version/exists", requestOptions)
           .then((response) => response.json())
           .then((json) => {
             if (json) {
@@ -299,7 +299,7 @@ export default {
         body: JSON.stringify(this.formData),
       };
       console.log(this.formData);
-      fetch("http://localhost:8080/api/song/save", requestOptions)
+      fetch("http://192.168.178.66:8083/api/song/save", requestOptions)
         .then((response) => response.json())
         .then((json) => {
           // Objekt klonen, damit zwischengespeichert werden kann
@@ -322,7 +322,7 @@ export default {
         body: formData,
       };
       fetch(
-        `http://localhost:8080/api/song/save/${returnId}/cover/`,
+        `http://192.168.178.66:8083/api/song/save/${returnId}/cover/`,
         requestOptions
       )
         .then((response) => response.json())

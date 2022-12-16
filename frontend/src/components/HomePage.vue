@@ -108,14 +108,14 @@ export default {
     SongCard,
   },
   mounted() {
-    fetch("http://localhost:8080/api/song/newest")
+    fetch("http://192.168.178.66:8083/api/song/newest")
       .then((response) => response.json())
       .then((json) => {
         for (var jsonItem of json) {
           this.recentItems.push(jsonItem);
         }
       });
-    fetch("http://localhost:8080/api/song/top")
+    fetch("http://192.168.178.66:8083/api/song/top")
       .then((response) => response.json())
       .then((json) => {
         for (var jsonItem of json) {

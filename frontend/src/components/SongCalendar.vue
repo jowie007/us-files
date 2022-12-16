@@ -172,7 +172,7 @@ export default {
       var year = new Date(this.realdate).getFullYear();
       var month = new Date(this.realdate).getMonth() + 1;
       if (!isNaN(year) && !isNaN(month)) {
-        fetch(`http://localhost:8080/api/song/calendar/${year}/${month}`)
+        fetch(`http://192.168.178.66:8083/api/song/calendar/${year}/${month}`)
           .then((response) => response.json())
           .then((json) => {
             this.items = json;

@@ -458,7 +458,7 @@ export default {
           sortDirection: this.sortDirection,
         }),
       };
-      fetch(`http://localhost:8080/api/song/search/`, requestOptions)
+      fetch(`http://192.168.178.66:8083/api/song/search/`, requestOptions)
         .then((response) => response.json())
         .then((json) => {
           for (var jsonItem of json) {
@@ -467,7 +467,7 @@ export default {
             console.log(this.items);
             this.promises.push(
               fetch(
-                "http://localhost:8080/api/song/" +
+                "http://192.168.178.66:8083/api/song/" +
                   jsonItem.songResponse.id +
                   "/cover"
               ).then((response) => response.blob())
@@ -475,7 +475,7 @@ export default {
           }
           this.finishedLoadingInfos = true;
         });
-      fetch(`http://localhost:8080/api/song/search/count`, requestOptions)
+      fetch(`http://192.168.178.66:8083/api/song/search/count`, requestOptions)
         .then((response) => response.json())
         .then((json) => {
           this.total = json;
@@ -497,7 +497,7 @@ export default {
         }),
       };
       fetch(
-        `http://localhost:8080/api/song/${data.songResponse.id}/${
+        `http://192.168.178.66:8083/api/song/${data.songResponse.id}/${
           this.$store.state.auth.user == null
             ? ""
             : this.$store.state.auth.user.username

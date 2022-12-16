@@ -126,9 +126,9 @@ export default {
     getCommentsCount() {
       let url;
       if (this.itemid == "-1") {
-        url = "http://localhost:8080/api/comment/page/count";
+        url = "http://192.168.178.66:8083/api/comment/page/count";
       } else {
-        url = `http://localhost:8080/api/comment/${this.itemid}/count`;
+        url = `http://192.168.178.66:8083/api/comment/${this.itemid}/count`;
       }
       fetch(url)
         .then((response) => response.json())
@@ -140,9 +140,9 @@ export default {
       this.getCommentsCount();
       let url;
       if (this.itemid == "-1") {
-        url = "http://localhost:8080/api/comment/page";
+        url = "http://192.168.178.66:8083/api/comment/page";
       } else {
-        url = `http://localhost:8080/api/comment/${this.itemid}`;
+        url = `http://192.168.178.66:8083/api/comment/${this.itemid}`;
       }
       const requestOptions = {
         method: "POST",
@@ -216,7 +216,7 @@ export default {
             text: this.inputText,
           }),
         };
-        fetch("http://localhost:8080/api/comment", requestOptions)
+        fetch("http://192.168.178.66:8083/api/comment", requestOptions)
           .then((response) => response.json())
           .then((data) => {
             this.postId = data.id;
@@ -228,7 +228,7 @@ export default {
     },
     getProfileImage(userName) {
       // https://stackoverflow.com/questions/46002113/javascript-reactjs-display-image-with-readablestream-as-source
-      fetch(`http://localhost:8080/api/user/${userName}/image`)
+      fetch(`http://192.168.178.66:8083/api/user/${userName}/image`)
         .then((response) => response.blob())
         .then((blob) => {
           if (blob.size > 0) {

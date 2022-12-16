@@ -335,7 +335,7 @@ export default {
         }),
       };
       fetch(
-        `http://localhost:8080/api/user/${this.user.name}/messages`,
+        `http://192.168.178.66:8083/api/user/${this.user.name}/messages`,
         requestOptions
       )
         .then((response) => response.json())
@@ -345,7 +345,7 @@ export default {
         });
     },
     getMessages() {
-      fetch(`http://localhost:8080/api/user/${this.user.name}/messages`)
+      fetch(`http://192.168.178.66:8083/api/user/${this.user.name}/messages`)
         .then((response) => response.json())
         .then((json) => {
           this.items = json;
@@ -375,7 +375,7 @@ export default {
     },
     getProfileImage() {
       // https://stackoverflow.com/questions/46002113/javascript-reactjs-display-image-with-readablestream-as-source
-      fetch("http://localhost:8080/api/user/" + this.user.name + "/image")
+      fetch("http://192.168.178.66:8083/api/user/" + this.user.name + "/image")
         .then((response) => response.blob())
         .then((blob) => {
           if (blob.size > 0) {
@@ -397,7 +397,7 @@ export default {
       this.jsonError = "";
       this.files = "";
       document.getElementById("content-main").style.backgroundColor = "#fff";
-      fetch(`http://localhost:8080/api/user/${this.name}/info`)
+      fetch(`http://192.168.178.66:8083/api/user/${this.name}/info`)
         .then((response) => response.json())
         .then((json) => {
           if (json.error == undefined) {
@@ -451,7 +451,7 @@ export default {
         body: formData,
       };
       fetch(
-        `http://localhost:8080/api/user/save/${this.user.name}/image/`,
+        `http://192.168.178.66:8083/api/user/save/${this.user.name}/image/`,
         requestOptions
       )
         .then((response) => response.json())
@@ -469,7 +469,7 @@ export default {
       }).then((result) => {
         if (result) {
           fetch(
-            `http://localhost:8080/api/user/delete/${this.user.name}/image/`
+            `http://192.168.178.66:8083/api/user/delete/${this.user.name}/image/`
           )
             .then((response) => response.json())
             .then((json) => {
